@@ -56,6 +56,7 @@ namespace TravelBlog.Controllers
             ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Planet");
             return View(thisExp);
         }
+ 
 
         [HttpPost]
         public IActionResult Edit(Experience experience)

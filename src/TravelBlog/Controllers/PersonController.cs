@@ -22,6 +22,11 @@ namespace TravelBlog.Controllers
 
             return View(thisPerson);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
         public IActionResult Create(Person person)
         {
             db.People.Add(person);
@@ -47,9 +52,9 @@ namespace TravelBlog.Controllers
             return View(thisPer);
         }
         [HttpPost]
-        public IActionResult Edit(Experience pererience)
+        public IActionResult Edit(Person person)
         {
-            db.Entry(pererience).State = EntityState.Modified;
+            db.Entry(person).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

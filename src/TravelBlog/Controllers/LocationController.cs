@@ -57,9 +57,9 @@ namespace TravelBlog.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Experience locerience)
+        public IActionResult Edit(Location location)
         {
-            db.Entry(locerience).State = EntityState.Modified;
+            db.Entry(location).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
