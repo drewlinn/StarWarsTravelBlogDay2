@@ -12,13 +12,15 @@ namespace TravelBlog.Controllers
         private TravelBlogContext db = new TravelBlogContext();
         public IActionResult Index()
         {
-            return View(db.Experiences.Include(exp => exp.Location).ToList());
+            return View(db.Experiences.Include(exp => exp.Location).Include(exp => exp.Person));
         }
 
         public IActionResult Details(int id)
         {
             var thisExperience = db.Experiences.FirstOrDefault(exp => exp.ExperienceId == id);
             thisExperience.Location = db.Locations.FirstOrDefault(loc => loc.LocationId == thisExperience.LocationId);
+            thisExperience.Person = db.People.FirstOrDefault(loc => loc.PersonId == thisExperience.PersonId);
+
 
             return View(thisExperience);
         }
@@ -26,6 +28,7 @@ namespace TravelBlog.Controllers
         public IActionResult Create()
         {
             ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Planet");
+            ViewBag.PersonId = new SelectList(db.People, "PersonId", "Name");
             return View();
         }
         [HttpPost]
@@ -54,6 +57,7 @@ namespace TravelBlog.Controllers
         {
             var thisExp = db.Experiences.FirstOrDefault(exp => exp.ExperienceId == id);
             ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Planet");
+            ViewBag.PersonId = new SelectList(db.People, "PersonId", "Name");
             return View(thisExp);
         }
  
