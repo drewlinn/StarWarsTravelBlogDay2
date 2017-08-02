@@ -1,0 +1,23 @@
+﻿@model TravelBlog.Models.Person
+
+@{
+    ViewData["Title"] = "Person - Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Wipe this pathetic planet from the face of the galaxy!</h2>
+<h3>- Darth Malak, KotOR</h3>
+
+@Html.DisplayNameFor(model => model.Name) : @Html.DisplayFor(model => model.Name)
+@Html.DisplayNameFor(model => model.Species) : @Html.DisplayFor(model => model.Species)
+@Html.DisplayNameFor(model => model.Affiliation) : @Html.DisplayFor(model => model.Affiliation)
+
+
+
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+
+<p>@Html.ActionLink("Back to home", "Index")</p>

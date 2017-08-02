@@ -11,9 +11,10 @@ namespace TravelBlog.Models
         [Key]
         public int ExperienceId { get; set; }
         public string Description { get; set; }
-        [Required]
         public DateTime Date { get; set; }
         public int LocationId { get; set; }
+        public int PersonId { get; set; }
         public virtual Location Location { get; set; }
+        public virtual Person Person { get; set; }
     }
 }

@@ -1,0 +1,26 @@
+﻿@model TravelBlog.Models.Person
+@{
+    ViewData["Title"] = "Person - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Can you *really* edit a planet? Especially @Html.DisplayFor(model => model.Name)?</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.PersonId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Species)
+    @Html.EditorFor(model => model.Species)
+
+    @Html.LabelFor(model => model.Affiliation)
+    @Html.EditorFor(model => model.Affiliation)
+
+    <input type="submit" value="Save" class="btn btn-primary" />
+}
+
+@Html.ActionLink("Back to List", "Index")

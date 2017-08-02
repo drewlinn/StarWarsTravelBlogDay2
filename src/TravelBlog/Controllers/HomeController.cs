@@ -64,6 +64,7 @@ namespace TravelBlog.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

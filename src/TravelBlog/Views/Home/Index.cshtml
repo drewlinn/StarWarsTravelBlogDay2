@@ -21,6 +21,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Location.Planet)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Person.Name)
+        </th>
         <th></th>
     </tr>
 
@@ -35,6 +38,9 @@
             </td>
             <td>
                 @Html.DisplayFor(model => exp.Location.Planet) --
+            </td>
+            <td>
+                @Html.DisplayFor(model => exp.Person.Name) --
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = exp.ExperienceId })
