@@ -1,11 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace TravelBlog.Models
 {
-    public class TravelBlogContext : DbContext
+    public class TravelBlogContext : IdentityDbContext<ApplicationUser>
     {
+        public TravelBlogContext(DbContextOptions options) : base(options)
+        {
+
+
+        }
+
         public TravelBlogContext()
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
 
         public DbSet<Location> Locations { get; set; }
